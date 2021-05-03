@@ -14,6 +14,14 @@
     {% empty %}
     <li> There are no toppings for this pizza yet</li>
     {% endfor %}
+
+    {% for comment in comments %}
+    <li>
+        <p>{{ comment.text }}</p>
+    </li>
+    {% empty %}
+    <li> There are no comments for this pizza yet</li>
+    {% endfor %}
 </ul>
 
 {% endblock content %}
