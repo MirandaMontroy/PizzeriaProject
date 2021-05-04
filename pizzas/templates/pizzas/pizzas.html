@@ -2,19 +2,23 @@
 
 {% block content %}
 
-<p> Pizza List </p>
+<h1 style="background-color: gold;">
+    <center>Pizza List</center>
+</h1>
 
-<ul>
-    {% for p in pizzas %}
+<body style="background-color: orangered;">
+    <ul>
+        {% for p in pizzas %}
 
-    <li>
-        <a href="{% url 'pizzas:pizza' p.id %}">{{ p }}</a>
-    </li>
-    {% empty %}
-    <li> No pizzas have been added yet.</li>
+        <li>
+            <font size="+4"><a href="{% url 'pizzas:pizza' p.id %}">{{ p }}</a></font>
+        </li>
+        {% empty %}
+        <li> No pizzas have been added yet.</li>
 
-    {% endfor %}
+        {% endfor %}
 
-</ul>
+    </ul>
+</body>
 
 {% endblock content %}
