@@ -2,36 +2,53 @@
 
 {% block content %}
 
+<style>
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+</style>
 
-<p>Pizza: {{ pizza }} </p>
+<h1 style="background-color: gold;">
+    <center>Pizza: {{ pizza }}</center>
+</h1>
 
-<ul>
+<body style="background-color: orangered;">
+    <img src=" {{pizza.image}}" alt="test" class="center">
 
-    {% for topping in toppings %}
-    <li>
-        <p>{{ topping.name }}</p>
+    <font size='+2'>
+        <p>Toppings:</p>
+    </font>
+    <ul>
+        {% for topping in toppings %}
+        <li>
+            <p>{{ topping.name }}</p>
 
-    </li>
-    {% empty %}
-    <li> There are no toppings for this pizza yet</li>
-    {% endfor %}
+        </li>
+        {% empty %}
+        <li> There are no toppings for this pizza yet</li>
+        {% endfor %}
 
-</ul>
+    </ul>
 
-<p>Comments:</p>
+    <font size='+2'>
+        <p>Comments:</p>
+    </font>
 
-<ul>
-    {% for comment in comments %}
-    <li>
-        <p>{{ comment.text }}</p>
-    </li>
-    {% empty %}
-    <li> There are no comments for this pizza yet</li>
-    {% endfor %}
-</ul>
+    <ul>
+        {% for comment in comments %}
+        <li>
+            <p>{{ comment.text }}</p>
+        </li>
+        {% empty %}
+        <li> There are no comments for this pizza yet</li>
+        {% endfor %}
+    </ul>
 
-<p>
-    <a href="{% url 'pizzas:new_comment' pizza.id %}">Add new comment</a>
-</p>
-
+    <p>
+        <a href="{% url 'pizzas:new_comment' pizza.id %}">Add new comment</a>
+    </p>
+</body>
 {% endblock content %}
